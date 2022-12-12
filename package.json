@@ -2,10 +2,10 @@
   "name": "gtechmanager",
   "version": "1.0.0",
   "description": "This is a back application for managing your project as a Software developer company that deals with multiple clients",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
