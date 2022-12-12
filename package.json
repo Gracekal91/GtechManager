@@ -1,0 +1,35 @@
+{
+  "name": "gtechmanager",
+  "version": "1.0.0",
+  "description": "This is a back application for managing your project as a Software developer company that deals with multiple clients",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gracekal91/GtechManager.git"
+  },
+  "keywords": [
+    "Gtec"
+  ],
+  "author": "Grace Kalombo Mastermind",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gracekal91/GtechManager/issues"
+  },
+  "homepage": "https://github.com/Gracekal91/GtechManager#readme",
+  "dependencies": {
+    "colors": "1.4.0",
+    "cors": "2.8.5",
+    "express": "4.18.2",
+    "express-graphql": "0.12.0",
+    "graphql": "15.8.0",
+    "mongoose": "6.8.0"
+  },
+  "devDependencies": {
+    "dotenv": "16.0.3",
+    "nodemon": "2.0.20"
+  }
+}
