@@ -9,9 +9,9 @@ const ProjectSchema = new mongoose.Schema({
     },
     paymentMode: {
         type: String,
-        enum: ['up-front', 'fifty-fifty', 'installment']
+        enum: ['up-front', 'fifty-fifty', 'deposit']
     },
-    customer: {
+    customerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'Customer'
     }

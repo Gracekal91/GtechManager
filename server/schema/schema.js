@@ -4,7 +4,7 @@ const {
     GraphQLString,
     GraphQLSchema,
     GraphQLList,
-    GraphQLNonNull
+    GraphQLNonNull, GraphQLEnumType
 } = require('graphql');
 
 //Bring in mongoose models
@@ -38,7 +38,7 @@ const ProjectType = new GraphQLObjectType({
         customer: {
             type: CustomerType,
             resolve(parent, args){
-                return Customer.findById(parent.id);
+                return Customer.findById(parent.customerId);
             }
         }
     })
@@ -64,6 +64,24 @@ const RootQuery = new GraphQLObjectType({
             },
             resolve(parent, args){
                 return Customer.findById(args.id);
+            }
+        },
+        //get all Projects
+        projects:{
+            type: GraphQLList(ProjectType),
+            resolve(parent, args){
+                return Project.find();
+            }
+        },
+
+        //get a single project
+        project:{
+            type: ProjectType,
+            args:{
+                id: {type: GraphQLNonNull(GraphQLID)}
+            },
+            resolve(parent, args){
+                return Project.findById(args.id);
             }
         }
     }
@@ -101,7 +119,15 @@ const mutation = new GraphQLObjectType({
             type: CustomerType,
             args:{id:{type:GraphQLNonNull(GraphQLID)}},
             resolve(parent, args){
-                return Customer.findByIdAndRemove(args.id)
+               /* return Customer.findByIdAndRemove(args.id)*/
+                //Delete customer and their projects
+                Project.find({ customerId: args.id }).then((projects) => {
+                    projects.forEach((project) => {
+                        project.remove();
+                    });
+                });
+
+                return Customer.findByIdAndRemove(args.id);
             }
         },
 
@@ -130,7 +156,115 @@ const mutation = new GraphQLObjectType({
                 );
             }
 
+        },
+
+
+        //Projects Mutations
+
+        //create a project
+        createProject:{
+            type: ProjectType,
+            args:{
+                name: {type: GraphQLNonNull(GraphQLString)},
+                description: {type: GraphQLNonNull(GraphQLString)},
+                status: {type: new GraphQLEnumType({
+                        name: 'ProjectStatus',
+                        values: {
+                            fresh: {value: 'Not started'},
+                            progress: {value: 'In Progress'},
+                            hold: {value: 'On Hold'},
+                            done: {value: 'Completed'}
+                        }
+                    }),
+                default: 'Not started'
+                },
+                paymentMode: {type: new GraphQLEnumType({
+                        name: 'ProjectPaymentMode',
+                        values: {
+                            once: {value: 'up-front'},
+                            installment: {value: 'fifty-fifty'},
+                            half: {value: 'deposit'}
+                        }
+
+                    }),
+                    default: 'Installment'
+                },
+                customerId:{
+                    type: GraphQLNonNull(GraphQLID)
+                },
+
+            },
+            resolve(parent, args){
+                const project = new Project({
+                    name: args.name,
+                    description: args.description,
+                    status: args.status,
+                    paymentMode: args.paymentMode,
+                    customerId: args.customerId
+                });
+                return project.save();
+            }
+        },
+
+        //Delete project
+
+        deleteProject:{
+            type: ProjectType,
+            args:{
+                id: {type: GraphQLNonNull(GraphQLID)}
+            },
+            resolve(parent, args){
+                return Project.findByIdAndRemove(args.id);
+            }
+        },
+        //Update project
+
+        updateProject:{
+            type: ProjectType,
+            args:{
+                id: {type: GraphQLNonNull(GraphQLID)},
+                name: {type: GraphQLString},
+                description: {type:GraphQLString},
+                status: {
+                    type: new GraphQLEnumType({
+                        name: 'ProjectStatusUpdate',
+                        values: {
+                            fresh: {value: 'Not started'},
+                            progress: {value: 'In Progress'},
+                            hold: {value: 'On Hold'},
+                            done: {value: 'Completed'}
+                        }
+                    }),
+                },
+                paymentMode: {type: new GraphQLEnumType({
+                        name: 'ProjectPaymentModeUpdate',
+                        values: {
+                            once: {value: 'up-front'},
+                            installment: {value: 'fifty-fifty'},
+                            half: {value: 'deposit'}
+                        }
+
+                    }),
+                    default: 'Installment'
+                }
+
+            },
+            resolve(parent, args){
+                return Project.findByIdAndUpdate(
+                    args.id,
+                    {
+                        $set:{
+                            name: args.name,
+                            description: args.description,
+                            status: args.status,
+                            paymentMode: args.paymentMode
+                        }
+                    },
+                    {new: true}
+                )
+            }
         }
+
     })
 })
 
