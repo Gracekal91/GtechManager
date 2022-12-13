@@ -1,0 +1,151 @@
+.hero_container{
+  width: 100%;
+  height: 450px;
+
+  background: darkturquoise;
+
+  .hero_content{
+    width: 70%;
+    height: 450px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5rem;
+
+    h1{
+      font-size: 1.5em;
+      font-weight: 300;
+      @media(max-width: 480px){
+        font-size: 1.2rem;
+      }
+    }
+    h4{
+      font-size: .8rem;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.53);
+      @media(max-width: 480px){
+        font-size: .8rem;
+      }
+    }
+    a{
+      display: inline-block;
+      text-decoration: none;
+      font-size: 15px;
+      width: 200px;
+      background: #000;
+      height: 35px;
+      line-height: 33px;
+      color: rgba(240, 248, 255, 0.66);
+      transition: ease-in .1s;
+      margin-top: .5rem;
+    }
+    a:hover{
+      transform: scale(1.1);
+      transition: ease-out .1s;
+    }
+  }
+}
+
+//WELCOME SECTION
+
+  .welcome_content{
+    width: 50%;
+    margin: 4rem auto;
+    text-align: center;
+    @media(max-width: 1024px) {
+      width: 70%;
+    }
+    @media(max-width: 480px) {
+      width: 80%;
+    }
+
+    h1{
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+
+    p{
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+
+//Showcase section
+
+.showcase_container{
+  width: 100%;
+
+  .showcase_content{
+    display: flex;
+    justify-content: space-between;
+    @media(max-width: 680px){
+      flex-direction: column;
+    }
+
+    div{
+      width: 50%;
+      background-color: darkturquoise;
+      height: 400px;
+      @media(max-width: 680px){
+        width: 100%;
+        height: 300px;
+      }
+    }
+    .left{
+      background-image: url('../images/left.jpg');
+      background-size: cover;
+      @media(max-width: 680px){
+        height: 300px;
+      }
+    }
+    .right{
+      text-align: left;
+      padding-top: 6rem;
+      padding-left: 1.5rem;
+      @media(max-width: 1024px){
+        padding-top: 4rem;
+      }
+      @media(max-width: 680px){
+               height: auto;
+        padding-bottom: 1.5rem;
+      }
+
+      h4{
+        font-weight: 300;
+      }
+      p{
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.58);
+        margin-bottom: -.2rem;
+      }
+      a{
+        display: inline-block;
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.51);
+        font-size: 15px;
+        transition: ease-in-out .1s;
+        span{
+          font-size: 14px;
+          margin-right: 10px;
+        }
+      }
+      a:hover{
+        transform: scale(1.2);
+        margin-left: .3rem;
+        transition: ease-in-out .1s;
+      }
+    }
+  }
+}
+
+.footer{
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.47);
+  font-size:14px;
+}
+
+//About button
