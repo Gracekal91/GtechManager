@@ -1,4 +1,4 @@
-import '../assets/scss/hero.scss'
+import '../../assets/scss/hero.scss'
 
 const HeroSection = ()=>{
     return(
@@ -7,7 +7,7 @@ const HeroSection = ()=>{
                 <div className="hero_content">
                     <h1>G - TECHNOLOGY</h1>
                     <h4>Gtech, get it done as it's in your mind</h4>
-                    <a href="#" className="hero_button">Get in touch</a>
+                    <a href="client/src/components/home/HeroSection#" className="hero_button">Get in touch</a>
                 </div>
             </div>
         </>

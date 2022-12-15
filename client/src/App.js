@@ -1,23 +1,20 @@
 import './assets/scss/styles.scss';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
 
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import Welcome from './components/Welcome';
-import Showcase from './components/Showcase';
-import AboutUs from './components/AboutUs';
-import Footer from './components/Footer';
+import Footer from './components/home/Footer';
 
 function App() {
     return (
         <>
-            <div className="body_container">
-                <Header/>
-                <HeroSection />
-                <Welcome />
-                <Showcase />
-                <AboutUs />
-                <Footer />
-            </div>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/dashboard" element={<Admin />} />
+                </Routes>
+            </Router>
+            <Footer />
         </>
     )}
 

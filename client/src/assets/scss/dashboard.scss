@@ -1,0 +1,211 @@
+//Dashboard Header
+
+.dbp_container{
+  width: 250px;
+  height: 90vh;
+  background-color: #070931;
+  padding: 1rem .5rem;
+  @media(max-width: 960px){
+    width: 28%;
+  }
+  @media(max-width: 600px){
+    width: 33%;
+  }
+  @media(max-width: 480px){
+    width: 70px;
+  }
+  .admin{
+    transition: ease-in .2s;
+    @media(max-width:480px ){
+  display: none;
+      transition: ease-in .2s;
+}
+  }
+  .open{
+    display: none;
+    transition: ease-in .2s;
+    @media(max-width:480px ){
+      display: block;
+      font-size: 1rem;
+      transition: ease-in .2s;
+    }
+
+    a{
+      margin-left: -.25rem;
+      margin-top: .5rem;
+      font-size: 1.2rem ;
+    }
+  }
+
+  h1{
+    text-align: center;
+    font-size: .7rem;
+    font-weight: 500;
+    background-color: #0a5cf3;
+    padding: .3rem 0;
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: .2rem;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  ul {
+    margin-top: 1rem;
+    padding-left: .8rem;
+
+    a {
+      text-decoration: none;
+      display: flex;
+      li {
+        list-style: none;
+        color: #a7a2a2;
+        font-size: 16px;
+        margin-bottom: .8rem;
+        margin-left: .6rem;
+        margin-top: .2rem;
+      }
+    }
+  }
+}
+
+//Side menu
+
+.side_menu_container{
+  width: 50%;
+  margin-right: 35px;
+  height: 90vh;
+  background: #070931;
+  position: absolute;
+  top: 50px;
+  left:60px;
+
+  ul{
+    padding: 0;
+    margin-top: 4.6rem;
+
+    a{
+      text-decoration: none;
+      li{
+        list-style: none;
+        font-size: 15px;
+        color: #bab4b4;
+        margin-bottom: 1.1rem;
+    }
+    }
+  }
+}
+
+// Dashboard page
+.dashboard_container{
+  display: flex;
+}
+
+//Dashboard content
+.dbh_container{
+  padding: .5rem;
+  width: 100%;
+
+  .top_section{
+    @media(min-width: 660px){
+      display: flex;
+      .dashboard_card_container{
+          width: 31% !important;
+      }
+    }
+  }
+
+  .middle_section{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin-top: 1rem;
+    margin-left: .3rem;
+    @media(max-width: 1200px){
+      margin-left: .1rem;
+    }
+
+    @media(max-width: 660px){
+      margin-left: 0;
+      grid-template-columns: 1fr;
+      .dashboard_card_container{
+        margin-left: .5rem !important;
+        width: 93% !important;
+      }
+    }
+
+    .dashboard_card_container{
+      margin-left: 6px;
+    }
+
+    .right_side{
+      border-radius: .3rem;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+      width: 98%;
+      margin-left: -.2rem;
+      height: 228px;
+      order: 2;
+      @media(max-width: 660px){
+        width: 90%;
+        margin: 0 auto 1rem auto;
+        order: -2;
+        height: 200px;
+      }
+    }
+
+    .left_side{
+      order:1;
+      @media(max-width:660px){
+
+      }
+    }
+  }
+}
+
+//Dashboard card 072 747 6598
+
+.dashboard_card_container{
+  width: 90% !important;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0 auto .7rem auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+
+
+
+  p{
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    font-size: 15px;
+  }
+  h5{
+    margin: 0;
+    padding: .5rem 0;
+  }
+}
+
+//Table
+
+.table_container{
+  .dash-table{
+    width: 98%;
+    margin: 1rem auto 0 auto;
+  }
+
+  .Header_th{
+    background: #070931;
+    color: #e7e4e4;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  td,
+  .body_th{
+    color: #7e7a7a;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  tr:nth-child(even){
+    background: #cccee7;
+  }
+
+}
