@@ -1,4 +1,4 @@
-import '../assets/scss/hero.scss'
+import '../../assets/scss/hero.scss'
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Showcase = ()=>{
@@ -10,7 +10,7 @@ const Showcase = ()=>{
                     <div className="right">
                         <h4>Connect the world ...</h4>
                         <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid animi consectetur consequatur, consequuntur earum fugit, id iste obcaecati odio, quidem quo ratione repellendus sit vel. Consequatur excepturi labore numquam!</span></p>
-                        <a href="#"> <span>More</span><FaLongArrowAltRight /></a>
+                        <a href="client/src/components/home/Showcase#"> <span>More</span><FaLongArrowAltRight /></a>
                     </div>
                 </div>
             </div>

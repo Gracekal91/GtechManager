@@ -1,4 +1,4 @@
-import '../assets/scss/hero.scss'
+import '../../assets/scss/hero.scss'
 
 const Footer = ()=>{
     return(
